@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "YCO0ZBoIaYqCcKHb15wnI2RjV3X76qbl1qGMYZAbjc4=",
+  "Source": "cclapi",
+  "BasePath": "_content/cclapi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "cclapi/wwwroot",
+      "Source": "cclapi",
+      "ContentRoot": "/home/hto/Documents/Work/CCL/cclapi/wwwroot/",
+      "BasePath": "_content/cclapi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

@@ -1,0 +1,89 @@
+@cclapi_HostAddress = http://192.168.0.9:5000
+@cclapi_JTW = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTc0ODI3ODEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMCJ9.XVe0YmP4kctPuN4XucXBBfgN5z1jdSPVKTSwRDDiA9Y
+
+# loginRequest (The password needs to be hashed)
+# Not hashed pasword for simple test
+POST {{cclapi_HostAddress}}/api/Auth/Login
+Content-Type: application/json
+Accept: application/json
+
+{
+  "Email": "usuario2@example.com",
+  "Password": "password2"
+}
+
+###
+
+GET {{cclapi_HostAddress}}/api/salidas
+Accept: application/json
+Authorization: Bearer {{cclapi_JTW}}
+
+###
+
+GET {{cclapi_HostAddress}}/api/entradas
+Accept: application/json
+Authorization: Bearer {{cclapi_JTW}}
+
+###
+
+GET {{cclapi_HostAddress}}/api/productos
+Accept: application/json
+Authorization: Bearer {{cclapi_JTW}}
+
+###
+
+GET {{cclapi_HostAddress}}/api/inventario
+Accept: application/json
+Authorization: Bearer {{cclapi_JTW}}
+
+###
+
+POST {{cclapi_HostAddress}}/api/productos
+Content-Type: application/json
+Accept: application/json
+
+{
+    "Nombre": "Producto SDSfdf",
+    "Descripcion": "Descripcion del producto",
+    "Precio": 1000
+}
+
+###
+
+PUT {{cclapi_HostAddress}}/api/productos/6
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{cclapi_JTW}}
+
+{
+    "Nombre": "Producto 6",
+    "Descripcion": "Descripcion del producto 6",
+    "Precio": 12.2
+}
+
+###
+
+POST {{cclapi_HostAddress}}/api/inventario
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{cclapi_JTW}}
+
+{
+    "id_producto": 3,
+    "cantidad": 10
+}
+
+###
+
+PUT {{cclapi_HostAddress}}/api/inventario/cantidad/3/1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{cclapi_JTW}}
+
+###
+
+DELETE {{cclapi_HostAddress}}/api/inventario/3
+Accept: application/json
+Authorization: Bearer {{cclapi_JTW}}
+
+###

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Inventario</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <script>
+        if (!localStorage.getItem('jwtToken')) {
+            window.location.href = 'login.html';
+        }
+        // función de cierre de sesión
+        function logout() {
+            localStorage.removeItem('jwtToken');
+            window.location.href = 'login.html';
+        }
+    </script>
+    <div class="d-flex container">
+        <div class="sidebar bg-light">
+            <h4>Navegación</h4>
+            <ul class="nav flex-column" style="align-self: center; ">
+                <li class="nav-item">
+                    <a class="nav-link" href="products_dashboard.html">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="inventory_dashboard.html">Inventario</a>
+                </li>
+            </ul>
+            <div style="align-self: end; align-items: end; display: grid; padding: 11px;">
+                <button class="btn btn-danger" onclick="logout()">Cerrar Sesión</button>
+            </div>
+        </div>
+        <div class="main-content d-flex justify-content-center align-items-center">
+            <div class="container mt-4">
+                <div class="dashboard-container container">
+                    <h2 class="text-center">Panel de Inventario</h2>
+                    <div class="row text-center my-4">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="card-title">Total de Productos en Inventario</h3>
+                                    <p id="totalProducts" class="card-text">0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#addProductModal">Agregar
+                            Producto a inventario</button>
+                        <button class="btn btn-danger" id="deleteSelected">Eliminar Seleccionados</button>
+                    </div>
+                    <table id="inventoryDashboard" class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th><input type="checkbox" id="selectAll"></th>
+                                <th>ID del Producto</th>
+                                <th>Nombre</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th>Fecha de Modificación</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Los elementos del inventario se insertarán dinámicamente aquí -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para agregar producto -->
+    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addProductModalLabel">Agregar Nuevo Producto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        id="closeAddProductToInventoryModal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addProductToInventoryForm">
+                        <div class="form-group">
+                            <label for="productID">Producto</label>
+                            <select class="form-control" id="productID" name="productID" required>
+                                <!-- Los elementos de los productos se insertarán dinámicamente aquí -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Cantidad</label>
+                            <input type="number" class="form-control" id="quantity" name="quantity" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Agregar Producto</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

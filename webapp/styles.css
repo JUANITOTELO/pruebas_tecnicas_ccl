@@ -1,0 +1,92 @@
+body {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+}
+
+.sidebar {
+    width: 10%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    text-align: center;
+    display: grid;
+}
+
+.main-content {
+    margin-left: 250px; /* Same as the width of the sidebar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 250px); /* Adjust width to account for sidebar */
+    height: 100vh; /* Full height to center vertically */
+}
+
+.login-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+.stat {
+    display: inline-block;
+    width: 45%;
+    margin: 10px 2.5%;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
